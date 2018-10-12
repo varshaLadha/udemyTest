@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mac2018_10_01.udemyapp.activity.BrowseActivity">
+
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="?actionBarSize">
+
+        <Button
+            android:id="@+id/btLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:layout_marginTop="@dimen/size20"
+            android:visibility="gone"
+            android:textAllCaps="false" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/llNavigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/grey"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/size10"
+        android:layout_alignParentBottom="true">
+        
+        <LinearLayout
+            android:id="@+id/llFeature"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:onClick="onClick">
+            
+            <ImageView
+                android:id="@+id/ivFeature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/feature"/>
+
+            <TextView
+                android:id="@+id/tvFeature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Featured"
+                android:textColor="@color/lightGrey"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:onClick="onClick">
+
+            <ImageView
+                android:id="@+id/ivSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/search"/>
+
+            <TextView
+                android:id="@+id/tvSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Search"
+                android:textColor="@color/lightGrey"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llMyCourse"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:onClick="onClick">
+
+            <ImageView
+                android:id="@+id/ivMyCourse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/play"/>
+
+            <TextView
+                android:id="@+id/tvMyCourse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="My Course"
+                android:textColor="@color/lightGrey"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llWishlist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:onClick="onClick">
+
+            <ImageView
+                android:id="@+id/ivWishlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/heart"/>
+
+            <TextView
+                android:id="@+id/tvWishlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Wishlist"
+                android:textColor="@color/lightGrey"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llAccount"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:onClick="onClick">
+
+            <ImageView
+                android:id="@+id/ivAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/profile"/>
+
+            <TextView
+                android:id="@+id/tvAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Account"
+                android:textColor="@color/lightGrey"
+                android:gravity="center"/>
+        </LinearLayout>
+        
+    </LinearLayout>
+
+</RelativeLayout>

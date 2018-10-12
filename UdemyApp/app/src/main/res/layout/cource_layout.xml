@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rlDataContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size5"
+        android:layout_marginRight="@dimen/size5"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/ivCourseImage"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:foreground="@drawable/image_gradient"
+            android:src="@color/cardview_dark_background">
+        </ImageView>
+
+        <TextView
+            android:layout_height="100dp"
+            android:layout_width="150dp"
+            android:id="@+id/tvCourseName"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text="Hello"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size18"
+            />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size20"
+        android:layout_below="@id/rlDataContainer"/>
+
+</RelativeLayout>

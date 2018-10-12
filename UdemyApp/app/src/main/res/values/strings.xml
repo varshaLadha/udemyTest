@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Udemy App</string>
+    <string name="termsOfUser">Terms of use</string>
+    <string name="termsMessage">By clicking on \'Sign in\' you agree to \nour Terms of Use and Privacy Policy  </string>
+    <string name="haveAccount">Have an account? \nSign in</string>
+    <string name="requiredField">This field is required</string>
+    <string name="validEmail">Please enter a valid email address.</string>
+    <string name="passwordLength">Your password must be at least 6 characters long.</string>
+    <string name="becomeInstructor">Become an Instructor</string>
+    <string name="version">Udemy v5.2.3</string>
+
+</resources>
