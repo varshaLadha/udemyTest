@@ -10,7 +10,7 @@ router.post('/login', (req, res) =>{
     login(req.body, (err, user) => {
         if(err){
             //res.statusCode = 400
-            res.json({success:0, response:err, token:''})
+            res.json({success:0, error:err.error, token:''})
         }else {
             const JWTToken = jwt.sign({
                 email: user.email,
@@ -36,7 +36,7 @@ router.post('/signUp', (req, res) => {
     post(req.body, (err, user) => {
         if(err){
             //res.statusCode = 400
-            res.json({success:0, response:err, token:''})
+            res.json({success:0, error:err.error, token:''})
         }
         else {
             const JWTToken = jwt.sign({

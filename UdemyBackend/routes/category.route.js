@@ -16,9 +16,9 @@ const {getAll, post} = require('./../controllers/category.controller');
 router.get('/', (req, res) => {
     getAll((err, result) => {
         if(err){
-            res.json({success:0, response:err})
+            res.json({success:0, error:err.error})
         }else if(result.length == 0){
-            res.json({success:0, response:{"error":"No data found"}})
+            res.json({success:0, error:"No data found"})
         }else {
             res.json({success:1, response: result})
         }
@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     post(req.body, (err, result) => {
         if(err) {
-            res.json({success:0, response:err})
+            res.json({success:0, error:err.error})
         }else {
 
             delete result.dataValues.isDeleted

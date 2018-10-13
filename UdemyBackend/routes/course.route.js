@@ -3,12 +3,12 @@ const router = Router();
 
 const {getBySubCategoryId, post} = require('./../controllers/course.controller')
 
-router.get('/category/:categoryId', (req, res) => {
-    getBySubCategoryId(req.body.categoryId, (err, result) => {
+router.get('/subcategory/:subCategoryId', (req, res) => {
+    getBySubCategoryId(req.params.subCategoryId, (err, result) => {
         if(err) {
-            res.json({success:0, response:err, token:''})
+            res.json({success:0, error:err.error})
         }else if(result.length == 0){
-            res.json({success:0, response:{"error":"No data found"}})
+            res.json({success:0, error:"No data found"})
         }else {
             res.json({success:1, response: result})
         }
@@ -18,7 +18,7 @@ router.get('/category/:categoryId', (req, res) => {
 router.post('/', (req, res) => {
     post(req.body, (err, result) => {
         if(err) {
-            res.json({success:0, response:err})
+            res.json({success:0, error:err.error})
         }else {
 
             delete result.dataValues.isDeleted
