@@ -11,4 +11,5 @@
     <dimen name="size55">55dp</dimen>
     <dimen name="size70">70dp</dimen>
     <dimen name="size100">100dp</dimen>
+    <dimen name="size120">120dp</dimen>
 </resources>

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class CategoryResponseModel {
+public class SubCategoryResponseModel {
 
     @SerializedName("success")
     @Expose
@@ -46,12 +46,12 @@ public class CategoryResponseModel {
         @SerializedName("id")
         @Expose
         private Integer id;
-        @SerializedName("categoryName")
+        @SerializedName("categoryId")
         @Expose
-        private String categoryName;
-        @SerializedName("imageUrl")
+        private Integer categoryId;
+        @SerializedName("subCategoryName")
         @Expose
-        private String imageUrl;
+        private String subCategoryName;
 
         public Integer getId() {
             return id;
@@ -61,21 +61,20 @@ public class CategoryResponseModel {
             this.id = id;
         }
 
-        public String getCategoryName() {
-            return categoryName;
+        public Integer getCategoryId() {
+            return categoryId;
         }
 
-        public void setCategoryName(String categoryName) {
-            this.categoryName = categoryName;
+        public void setCategoryId(Integer categoryId) {
+            this.categoryId = categoryId;
         }
 
-        public String getImageUrl() {
-            return imageUrl;
+        public String getSubCategoryName() {
+            return subCategoryName;
         }
 
-        public void setImageUrl(String imageUrl) {
-            this.imageUrl = imageUrl;
+        public void setSubCategoryName(String subCategoryName) {
+            this.subCategoryName = subCategoryName;
         }
-
     }
 }

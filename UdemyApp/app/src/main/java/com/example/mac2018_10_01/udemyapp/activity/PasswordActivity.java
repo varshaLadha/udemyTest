@@ -116,8 +116,8 @@ public class PasswordActivity extends AppCompatActivity {
                         tvMessage.setText("Oops!");
                         tvMessage1.setVisibility(View.GONE);
                         inputEmail.setVisibility(View.VISIBLE);
-                        Log.d( "onResponse: Else",userModel.getResponse().getError()+"");
-                        Toast.makeText(PasswordActivity.this, userModel.getResponse().getError(), Toast.LENGTH_SHORT).show();
+                        Log.d( "onResponse: Else",userModel.getError()+"");
+                        Toast.makeText(PasswordActivity.this, response.body().getError(), Toast.LENGTH_SHORT).show();
                     }
                 }catch (Exception e){
                     Toast.makeText(PasswordActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();

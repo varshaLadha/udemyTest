@@ -116,8 +116,8 @@ public class SigninActivity extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                         }else {
-                            Log.d( "onResponse: Else",userModel.getResponse().getError()+"");
-                            Toast.makeText(SigninActivity.this, userModel.getResponse().getError(), Toast.LENGTH_SHORT).show();
+                            Log.d( "onResponse: Else",userModel.getError()+"");
+                            Toast.makeText(SigninActivity.this, userModel.getError(), Toast.LENGTH_SHORT).show();
                         }
                     }catch (Exception e){
                         Toast.makeText(SigninActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();

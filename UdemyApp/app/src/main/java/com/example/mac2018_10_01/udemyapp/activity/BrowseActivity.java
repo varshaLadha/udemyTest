@@ -1,33 +1,27 @@
 package com.example.mac2018_10_01.udemyapp.activity;
 
-import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.mac2018_10_01.udemyapp.R;
 import com.example.mac2018_10_01.udemyapp.fragments.AccountFragment;
+import com.example.mac2018_10_01.udemyapp.fragments.CourseFragment;
 import com.example.mac2018_10_01.udemyapp.fragments.FeaturedFragment;
 import com.example.mac2018_10_01.udemyapp.fragments.MyCourseFragment;
 import com.example.mac2018_10_01.udemyapp.fragments.SearchFragment;
+import com.example.mac2018_10_01.udemyapp.fragments.SubCategoryFragment;
 import com.example.mac2018_10_01.udemyapp.fragments.WishlistFragment;
 import com.example.mac2018_10_01.udemyapp.modalClasses.UserData;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.gson.Gson;
 
 public class BrowseActivity extends AppCompatActivity {
 
-    Button btLogout;
     Gson gson;
     String object;
     UserData userData;
@@ -45,8 +39,8 @@ public class BrowseActivity extends AppCompatActivity {
 
     public void initViews(){
 
-        btLogout=(Button)findViewById(R.id.btLogout);
         ab = getSupportActionBar();
+        ab.hide();
 
         ivFeature = (ImageView)findViewById(R.id.ivFeature);
         ivSearch = (ImageView)findViewById(R.id.ivSearch);
@@ -79,8 +73,6 @@ public class BrowseActivity extends AppCompatActivity {
             case R.id.llFeature:
                 setFocused(R.drawable.feature_focused,getResources().getColor(R.color.white),R.drawable.search,getResources().getColor(R.color.lightGrey),R.drawable.play,getResources().getColor(R.color.lightGrey),R.drawable.heart,getResources().getColor(R.color.lightGrey),R.drawable.profile,getResources().getColor(R.color.lightGrey));
 
-                ab.show();
-                ab.setTitle("Featured");
                 fragment = new FeaturedFragment();
                 loadFragment(fragment);
                 break;
@@ -88,8 +80,6 @@ public class BrowseActivity extends AppCompatActivity {
             case R.id.llSearch:
                 setFocused(R.drawable.feature,getResources().getColor(R.color.lightGrey),R.drawable.search_focused,getResources().getColor(R.color.white),R.drawable.play,getResources().getColor(R.color.lightGrey),R.drawable.heart,getResources().getColor(R.color.lightGrey),R.drawable.profile,getResources().getColor(R.color.lightGrey));
 
-                //ab.setTitle("Search");
-                ab.hide();
                 fragment = new SearchFragment();
                 loadFragment(fragment);
                 break;
@@ -97,8 +87,6 @@ public class BrowseActivity extends AppCompatActivity {
             case R.id.llMyCourse:
                 setFocused(R.drawable.feature,getResources().getColor(R.color.lightGrey),R.drawable.search,getResources().getColor(R.color.lightGrey),R.drawable.play_focused,getResources().getColor(R.color.white),R.drawable.heart,getResources().getColor(R.color.lightGrey),R.drawable.profile,getResources().getColor(R.color.lightGrey));
 
-                ab.show();
-                ab.setTitle("My courses");
                 fragment = new MyCourseFragment();
                 loadFragment(fragment);
                 break;
@@ -106,8 +94,6 @@ public class BrowseActivity extends AppCompatActivity {
             case R.id.llWishlist:
                 setFocused(R.drawable.feature,getResources().getColor(R.color.lightGrey),R.drawable.search,getResources().getColor(R.color.lightGrey),R.drawable.play,getResources().getColor(R.color.lightGrey),R.drawable.heart_focused,getResources().getColor(R.color.white),R.drawable.profile,getResources().getColor(R.color.lightGrey));
 
-                ab.show();
-                ab.setTitle("Wishlist");
                 fragment = new WishlistFragment();
                 loadFragment(fragment);
                 break;
@@ -115,8 +101,6 @@ public class BrowseActivity extends AppCompatActivity {
             case R.id.llAccount:
                 setFocused(R.drawable.feature,getResources().getColor(R.color.lightGrey),R.drawable.search,getResources().getColor(R.color.lightGrey),R.drawable.play,getResources().getColor(R.color.lightGrey),R.drawable.heart,getResources().getColor(R.color.lightGrey),R.drawable.profile_focused,getResources().getColor(R.color.white));
 
-                ab.show();
-                ab.setTitle("Account");
                 fragment = new AccountFragment();
                 loadFragment(fragment);
                 break;
@@ -147,6 +131,35 @@ public class BrowseActivity extends AppCompatActivity {
     private void loadFragment(Fragment fragment){
         FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_container,fragment);
+        transaction.commit();
+    }
+
+    public void loadCategories(int id,String subcategory){
+
+        Bundle bundle = new Bundle();
+        bundle.putString("subCategory", subcategory);
+        bundle.putInt("id",id);
+
+        SubCategoryFragment fragment = new SubCategoryFragment();
+        fragment.setArguments(bundle);
+
+        FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container,fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    public void loadCategoryData(int id, String name){
+        Bundle bundle = new Bundle();
+        bundle.putString("name", name);
+        bundle.putInt("id",id);
+
+        CourseFragment fragment = new CourseFragment();
+        fragment.setArguments(bundle);
+
+        FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container,fragment);
+        transaction.addToBackStack(null);
         transaction.commit();
     }
 }

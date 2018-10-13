@@ -47,17 +47,22 @@ public class LoginSplashActivity extends AppCompatActivity {
  *
  *
 
- Yesterday's Update
+ 10-10-2018 Update
  - Complete with designing of registration page
  - Working with validations at time of registering new user
  - Create back end for user table with user login and register route
  - Handle google login for user
 
 
- Today's Update
+ 11-10-2018 Update
  - Completed with validations at time of registration and login of user
  - Completed with invoking user sign-in and sign-up routes
  - Created necessary tabs as per app
  - Working on account tab
+
+ Today's Update
+ - Create back end for category and sub-category with necessary routes
+ - Working with account tab various link click
+ - Designing layout for Wishlist tab
  *
  * **/

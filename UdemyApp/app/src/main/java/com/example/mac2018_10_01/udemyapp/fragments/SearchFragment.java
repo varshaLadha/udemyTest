@@ -129,7 +129,7 @@ public class SearchFragment extends Fragment {
                     rvCourseList.setLayoutManager(layoutManager);
                     rvCourseList.setAdapter(adapter);
                 }else {
-                    Toast.makeText(getContext(), response.body().getResponse().get(0).getError(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), response.body().getError(), Toast.LENGTH_SHORT).show();
                 }
             }
 

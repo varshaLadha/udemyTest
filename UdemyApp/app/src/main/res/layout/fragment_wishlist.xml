@@ -4,9 +4,26 @@
     android:layout_height="match_parent"
     tools:context="com.example.mac2018_10_01.udemyapp.fragments.WishlistFragment">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Wishlist"
+            android:textColor="@color/white"
+            android:padding="@dimen/size10"
+            android:layout_marginLeft="@dimen/size10"
+            android:textSize="@dimen/size20"/>
+
+    </RelativeLayout>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="?actionBarSize">
 
         <RelativeLayout
             android:layout_width="match_parent"

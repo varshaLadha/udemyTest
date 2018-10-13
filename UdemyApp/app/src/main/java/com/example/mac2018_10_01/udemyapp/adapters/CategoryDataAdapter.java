@@ -1,15 +1,16 @@
 package com.example.mac2018_10_01.udemyapp.adapters;
 
 import android.content.Context;
+import android.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.mac2018_10_01.udemyapp.R;
+import com.example.mac2018_10_01.udemyapp.activity.BrowseActivity;
 import com.example.mac2018_10_01.udemyapp.modalClasses.CategoryData;
 import com.squareup.picasso.Picasso;
 
@@ -45,7 +46,7 @@ public class CategoryDataAdapter extends RecyclerView.Adapter<CategoryDataAdapte
         holder.tvCourseName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, ""+categoryDataList.get(position).getId(), Toast.LENGTH_SHORT).show();
+                ((BrowseActivity)context).loadCategories(categoryDataList.get(position).getId(),categoryDataList.get(position).getCourseName());
             }
         });
     }

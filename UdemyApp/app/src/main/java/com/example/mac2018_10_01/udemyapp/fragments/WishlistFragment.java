@@ -69,7 +69,7 @@ public class WishlistFragment extends Fragment {
                     categories.setLayoutManager(layoutManager);
                     categories.setAdapter(adapter);
                 }else {
-                    Toast.makeText(getContext(), response.body().getResponse().get(0).getError(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), response.body().getError(), Toast.LENGTH_SHORT).show();
                 }
             }
 

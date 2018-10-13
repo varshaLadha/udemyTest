@@ -12,20 +12,28 @@
         android:roundIcon="@drawable/udemy_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.SplashScreen">
+        <activity android:name=".activity.MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.SplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.SigninActivity" />
-        <activity android:name=".activity.EmailActivity" />
-        <activity android:name=".activity.PasswordActivity" />
-        <activity android:name=".activity.CreateAccountActivity" />
-        <activity android:name=".activity.BrowseActivity" />
-        <activity android:name=".activity.LoginSplashActivity"></activity>
+        <activity android:name=".activity.SigninActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.EmailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.PasswordActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.CreateAccountActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.BrowseActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.LoginSplashActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

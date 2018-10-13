@@ -9,39 +9,50 @@ import com.google.gson.annotations.SerializedName;
 
 public class UserResponseModel {
 
-        @SerializedName("success")
-        @Expose
-        private Integer success;
-        @SerializedName("response")
-        @Expose
-        private Response response;
-        @SerializedName("token")
-        @Expose
-        private String token;
+    @SerializedName("success")
+    @Expose
+    private Integer success;
+    @SerializedName("response")
+    @Expose
+    private Response response;
+    @SerializedName("token")
+    @Expose
+    private String token;
+    @SerializedName("error")
+    @Expose
+    private String error;
 
-        public Integer getSuccess() {
-            return success;
-        }
+    public Integer getSuccess() {
+        return success;
+    }
 
-        public void setSuccess(Integer success) {
-            this.success = success;
-        }
+    public void setSuccess(Integer success) {
+        this.success = success;
+    }
 
-        public Response getResponse() {
-            return response;
-        }
+    public Response getResponse() {
+        return response;
+    }
 
-        public void setResponse(Response response) {
-            this.response = response;
-        }
+    public void setResponse(Response response) {
+        this.response = response;
+    }
 
-        public String getToken() {
-            return token;
-        }
+    public String getToken() {
+        return token;
+    }
 
-        public void setToken(String token) {
+    public void setToken(String token) {
             this.token = token;
         }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
+    }
 
     public class Response {
 
@@ -54,9 +65,6 @@ public class UserResponseModel {
         @SerializedName("loginType")
         @Expose
         private String loginType;
-        @SerializedName("error")
-        @Expose
-        private String error;
 
         public String getUserName() {
             return userName;
@@ -80,14 +88,6 @@ public class UserResponseModel {
 
         public void setLoginType(String loginType) {
             this.loginType = loginType;
-        }
-
-        public String getError() {
-            return error;
-        }
-
-        public void setError(String error) {
-            this.error = error;
         }
     }
 }

@@ -196,8 +196,8 @@ public class CreateAccountActivity extends AppCompatActivity {
                                     startActivity(intent);
                                     finish();
                                 }else {
-                                    Log.d( "onResponse: Else",userModel.getResponse().getError()+"");
-                                    Toast.makeText(CreateAccountActivity.this, userModel.getResponse().getError(), Toast.LENGTH_SHORT).show();
+                                    Log.d( "onResponse: Else",userModel.getError()+"");
+                                    Toast.makeText(CreateAccountActivity.this, userModel.getError(), Toast.LENGTH_SHORT).show();
                                 }
                             }catch (Exception e){
                                 Toast.makeText(CreateAccountActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -260,8 +260,8 @@ public class CreateAccountActivity extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                         }else {
-                            Log.d( "onResponse: Else",userModel.getResponse().getError()+"");
-                            Toast.makeText(CreateAccountActivity.this, userModel.getResponse().getError(), Toast.LENGTH_SHORT).show();
+                            Log.d( "onResponse: Else",userModel.getError()+"");
+                            Toast.makeText(CreateAccountActivity.this, userModel.getError(), Toast.LENGTH_SHORT).show();
                         }
                     }catch (Exception e){
                         Toast.makeText(CreateAccountActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
