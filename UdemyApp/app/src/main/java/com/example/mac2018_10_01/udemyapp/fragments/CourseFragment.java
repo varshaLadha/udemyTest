@@ -89,7 +89,7 @@ public class CourseFragment extends Fragment {
                     List<SubCategoryDetailResponseModel.Response> data = response.body().getResponse();
 
                     for(int i=0; i<data.size(); i++){
-                        subCategoryDetailData.add(new SubCategoryDetailData(data.get(i).getId(),data.get(i).getSubCategoryId(),data.get(i).getRating(),data.get(i).getPeopleRated(),data.get(i).getCost(),data.get(i).getTitle(),data.get(i).getTag(),data.get(i).getInstructorName(),data.get(i).getImageUrl()));
+                        subCategoryDetailData.add(new SubCategoryDetailData(data.get(i).getId(),data.get(i).getSubCategoryId(),data.get(i).getRating(),data.get(i).getPeopleRated(), data.get(i).getAverageRating(),data.get(i).getCost(),data.get(i).getTitle(),data.get(i).getTag(),data.get(i).getInstructorName(),data.get(i).getImageUrl()));
                     }
 
                     adapter = new SubCategoryDetailListAdapter(getContext(), subCategoryDetailData);

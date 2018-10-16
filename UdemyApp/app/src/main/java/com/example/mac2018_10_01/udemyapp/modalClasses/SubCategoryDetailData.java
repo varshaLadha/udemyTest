@@ -4,14 +4,16 @@ public class SubCategoryDetailData {
 
     int id, subCategoryId, rating, peopleRated, cost;
     String title, tag, instructorName, imageUrl;
+    float averageRating;
 
     public SubCategoryDetailData() {}
 
-    public SubCategoryDetailData(int id, int subCategoryId, int rating, int peopleRated, int cost, String title, String tag, String instructorName, String imageUrl) {
+    public SubCategoryDetailData(int id, int subCategoryId, int rating, int peopleRated, float averageRating, int cost, String title, String tag, String instructorName, String imageUrl) {
         this.id = id;
         this.subCategoryId = subCategoryId;
         this.rating = rating;
         this.peopleRated = peopleRated;
+        this.averageRating = averageRating;
         this.cost = cost;
         this.title = title;
         this.tag = tag;
@@ -49,6 +51,14 @@ public class SubCategoryDetailData {
 
     public void setPeopleRated(int peopleRated) {
         this.peopleRated = peopleRated;
+    }
+
+    public float getAverageRating() {
+        return averageRating;
+    }
+
+    public void setAverageRating(float averageRating) {
+        this.averageRating = averageRating;
     }
 
     public int getCost() {

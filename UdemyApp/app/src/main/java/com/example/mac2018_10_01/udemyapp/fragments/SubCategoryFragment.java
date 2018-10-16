@@ -14,8 +14,11 @@ import android.widget.Toast;
 
 import com.example.mac2018_10_01.udemyapp.R;
 import com.example.mac2018_10_01.udemyapp.activity.ApplicationClass;
+import com.example.mac2018_10_01.udemyapp.adapters.PopularCourseAdapter;
 import com.example.mac2018_10_01.udemyapp.adapters.SubCategoryListAdapter;
 import com.example.mac2018_10_01.udemyapp.modalClasses.SubCategoryData;
+import com.example.mac2018_10_01.udemyapp.modalClasses.SubCategoryDetailData;
+import com.example.mac2018_10_01.udemyapp.modalClasses.SubCategoryDetailResponseModel;
 import com.example.mac2018_10_01.udemyapp.modalClasses.SubCategoryResponseModel;
 
 import java.util.ArrayList;
@@ -33,7 +36,9 @@ public class SubCategoryFragment extends Fragment {
     TextView tvTitle;
     RecyclerView rvPopularCourses, rvSubCategories;
     SubCategoryListAdapter subCategoryAdapter;
+    PopularCourseAdapter adapter;
     ArrayList<SubCategoryData> subCategoryData;
+    ArrayList<SubCategoryDetailData> subCategoryDetailData;
 
     public SubCategoryFragment() {
 
@@ -60,6 +65,7 @@ public class SubCategoryFragment extends Fragment {
         rvSubCategories = view.findViewById(R.id.rvSubCategories);
 
         subCategoryData = new ArrayList<SubCategoryData>();
+        subCategoryDetailData = new ArrayList<SubCategoryDetailData>();
 
         tvTitle.setText(subCategoryName);
 
@@ -76,6 +82,34 @@ public class SubCategoryFragment extends Fragment {
     public void getData() {
 
         subCategoryData.clear();
+        subCategoryDetailData.clear();
+
+        Call<SubCategoryDetailResponseModel> popularCourseCall = ApplicationClass.apiInterface.getPopularCourses(id);
+        popularCourseCall.enqueue(new Callback<SubCategoryDetailResponseModel>() {
+            @Override
+            public void onResponse(Call<SubCategoryDetailResponseModel> call, Response<SubCategoryDetailResponseModel> response) {
+                if(response.body().getSuccess() == 1) {
+                    List<SubCategoryDetailResponseModel.Response> data = response.body().getResponse();
+
+                    for(int i=0; i<data.size(); i++){
+                        subCategoryDetailData.add(new SubCategoryDetailData(data.get(i).getId(), data.get(i).getSubCategoryId(), data.get(i).getRating(), data.get(i).getPeopleRated(),data.get(i).getAverageRating(), data.get(i).getCost(), data.get(i).getTitle(), data.get(i).getTag(), data.get(i).getInstructorName(), data.get(i).getImageUrl()));
+                    }
+
+                    adapter = new PopularCourseAdapter(getContext(), subCategoryDetailData);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+                    rvPopularCourses.setLayoutManager(layoutManager);
+                    rvPopularCourses.setAdapter(adapter);
+                }else {
+                    Toast.makeText(getContext(), response.body().getError(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<SubCategoryDetailResponseModel> call, Throwable t) {
+                Toast.makeText(getContext(), "Error: "+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e( "onFailure: ", t.getMessage());
+            }
+        });
 
         Call<SubCategoryResponseModel> call = ApplicationClass.apiInterface.getSubCategoryData(id);
         call.enqueue(new Callback<SubCategoryResponseModel>() {

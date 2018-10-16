@@ -149,7 +149,7 @@ public class BrowseActivity extends AppCompatActivity {
         transaction.commit();
     }
 
-    public void loadCategoryData(int id, String name){
+    public void loadCategoryData( int id, String name){
         Bundle bundle = new Bundle();
         bundle.putString("name", name);
         bundle.putInt("id",id);

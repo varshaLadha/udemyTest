@@ -16,4 +16,9 @@
     <style name="MySwitch" parent="@style/Widget.AppCompat.CompoundButton.Switch">
         <item name="android:colorControlActivated">#D53149</item>
     </style>
+
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlActivated">@color/darkYellow</item>
+        <item name="colorControlNormal">@color/lightGrey</item>
+    </style>
 </resources>

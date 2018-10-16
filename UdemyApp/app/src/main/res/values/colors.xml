@@ -10,4 +10,6 @@
     <color name="lightGrey">#a6a2a2</color>
     <color name="background">#dcd8d8</color>
     <color name="red">#F00</color>
+    <color name="darkYellow">#ffcd03</color>
+    <color name="navigationBlue">#054a89</color>
 </resources>

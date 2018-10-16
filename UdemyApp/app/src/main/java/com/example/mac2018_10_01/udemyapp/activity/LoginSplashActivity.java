@@ -60,9 +60,20 @@ public class LoginSplashActivity extends AppCompatActivity {
  - Created necessary tabs as per app
  - Working on account tab
 
- Today's Update
+ 12-10-2018 Update
  - Create back end for category and sub-category with necessary routes
  - Working with account tab various link click
  - Designing layout for Wishlist tab
+
+ 13-10-2018's Update
+ - Working with fetching category and sub-category data and displaying
+ - Done with managing click of category image click to display sub-categories
+ - Design database table for courses and created necessary routes
+
+ Today's Update
+ - Populate database with data for course table
+ - Completed with fetching popular courses based on rating for particular Category (Backend as well as frontend)
+ - Working with featured tab
+
  *
  * **/

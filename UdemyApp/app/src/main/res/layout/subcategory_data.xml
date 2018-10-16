@@ -55,14 +55,33 @@
                     android:textSize="@dimen/size16"
                     android:text="Simon Foster"/>
 
-                <TextView
-                    android:id="@+id/tvRating"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/size16"
-                    android:text="4.5 (1,165)"/>
+                    android:orientation="horizontal">
+
+                    <RatingBar
+                        android:id="@+id/rbRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:transformPivotX="0dp"
+                        android:transformPivotY="0dp"
+                        android:layout_marginRight="-110dp"
+                        android:layout_marginBottom="-30dp"
+                        android:theme="@style/RatingBar"
+                        android:numStars="5"
+                        android:scaleX="0.5"
+                        android:scaleY="0.5" />
+
+                    <TextView
+                        android:id="@+id/tvRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/size16"
+                        android:text="4.5 (1,165)"/>
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/tvCost"

@@ -64,6 +64,9 @@ public class SubCategoryDetailResponseModel {
         @SerializedName("peopleRated")
         @Expose
         private Integer peopleRated;
+        @SerializedName("averageRating")
+        @Expose
+        private Float averageRating;
         @SerializedName("cost")
         @Expose
         private Integer cost;
@@ -125,6 +128,14 @@ public class SubCategoryDetailResponseModel {
 
         public void setPeopleRated(Integer peopleRated) {
             this.peopleRated = peopleRated;
+        }
+
+        public Float getAverageRating() {
+            return averageRating;
+        }
+
+        public void setAverageRating(Float averageRating) {
+            this.averageRating = averageRating;
         }
 
         public Integer getCost() {

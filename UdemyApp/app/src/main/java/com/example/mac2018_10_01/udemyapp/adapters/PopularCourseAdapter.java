@@ -16,20 +16,20 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class SubCategoryDetailListAdapter extends RecyclerView.Adapter<SubCategoryDetailListAdapter.MyViewHolder>{
+public class PopularCourseAdapter extends RecyclerView.Adapter<PopularCourseAdapter.MyViewHolder>{
 
     ArrayList<SubCategoryDetailData> subCategoryDetailDataList;
     SubCategoryDetailData subCategoryDetailData;
     Context context;
 
-    public SubCategoryDetailListAdapter(Context context, ArrayList<SubCategoryDetailData> subCategoryDetailDataList){
+    public PopularCourseAdapter(Context context, ArrayList<SubCategoryDetailData> subCategoryDetailDataList){
         this.context = context;
         this.subCategoryDetailDataList = subCategoryDetailDataList;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.subcategory_data, null);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.popular_courses, null);
         return new MyViewHolder(view);
     }
 
@@ -39,18 +39,11 @@ public class SubCategoryDetailListAdapter extends RecyclerView.Adapter<SubCatego
 
         Picasso.get()
                 .load(subCategoryDetailData.getImageUrl())
-                .into(holder.ivImage);
+                .into(holder.ivCoverImage);
         holder.tvTitle.setText(subCategoryDetailData.getTitle());
-
-        if(subCategoryDetailData.getTag() != null){
-            holder.tvTag.setVisibility(View.VISIBLE);
-            holder.tvTag.setText(subCategoryDetailData.getTag());
-        }
-
-        holder.tvAuthor.setText(subCategoryDetailData.getInstructorName());
-        holder.tvRating.setText(subCategoryDetailData.getAverageRating()+" ("+subCategoryDetailData.getPeopleRated()+")");
-        holder.tvCost.setText("Rs. "+subCategoryDetailData.getCost());
         holder.rbRating.setRating(subCategoryDetailData.getAverageRating());
+        holder.tvRating.setText("("+subCategoryDetailData.getPeopleRated()+")");
+        holder.tvCost.setText("Rs. "+subCategoryDetailData.getCost());
 
     }
 
@@ -60,20 +53,17 @@ public class SubCategoryDetailListAdapter extends RecyclerView.Adapter<SubCatego
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-
-        public CardView cvViewHolder;
-        public ImageView ivImage;
-        public TextView tvTitle, tvTag, tvAuthor, tvRating, tvCost;
+        public CardView cvPopularCourses;
+        public ImageView ivCoverImage;
+        public TextView tvTitle, tvRating, tvCost;
         public RatingBar rbRating;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
-            cvViewHolder = itemView.findViewById(R.id.cvViewHolder);
-            ivImage = itemView.findViewById(R.id.ivImage);
+            cvPopularCourses = itemView.findViewById(R.id.cvPopularCourses);
+            ivCoverImage = itemView.findViewById(R.id.ivCoverImage);
             tvTitle = itemView.findViewById(R.id.tvTitle);
-            tvTag = itemView.findViewById(R.id.tvTag);
-            tvAuthor = itemView.findViewById(R.id.tvAuthor);
             tvRating = itemView.findViewById(R.id.tvRating);
             tvCost = itemView.findViewById(R.id.tvCost);
             rbRating = itemView.findViewById(R.id.rbRating);
