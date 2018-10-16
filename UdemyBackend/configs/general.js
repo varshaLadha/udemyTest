@@ -28,6 +28,26 @@ exports.courseAttributes = [
     'instructorName',
     'rating',
     'peopleRated',
+    'averageRating',
     'cost',
     'imageUrl'
+]
+
+exports.courseDetailAttributes = [
+    'id',
+    'courseId',
+    'shortDescription',
+    'description',
+    'totalLearningHours',
+    'learning',
+    'requirements',
+    'totalLectures',
+    'previewVideoURL',
+    'quiz',
+    'articles',
+    'assignments',
+    'lifeTimeAccess',
+    'access',
+    'certification',
+    'supportFiles'
 ]

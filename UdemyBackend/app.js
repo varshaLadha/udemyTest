@@ -6,6 +6,7 @@ const userRoutes = require('./routes/user.route')
 const categoryRoutes = require('./routes/category.route')
 const subCategoryRoutes = require('./routes/subcategory.route')
 const courseRoutes = require('./routes/course.route')
+const courseDetailRoutes = require('./routes/courseDetail.route')
 
 const {db} = require('./configs/database')
 
@@ -27,6 +28,7 @@ app.use('/user', userRoutes);
 app.use('/category', categoryRoutes)
 app.use('/subcategory', subCategoryRoutes)
 app.use('/course', courseRoutes)
+app.use('/courseDetail', courseDetailRoutes)
 
 app.use((err, req, res, next) => {
     res.status(err.status || 500);

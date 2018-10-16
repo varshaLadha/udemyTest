@@ -11,7 +11,7 @@
 
 const {Router} = require('express');
 const router = Router();
-const {getAll, post} = require('./../controllers/category.controller');
+const {getAll, post, getDetail} = require('./../controllers/category.controller');
 
 router.get('/', (req, res) => {
     getAll((err, result) => {
@@ -36,6 +36,16 @@ router.post('/', (req, res) => {
             delete result.dataValues.updatedAt
 
             res.json({success:1, response: result.dataValues})
+        }
+    })
+})
+
+router.get('/:id/detail', (req, res) => {
+    getDetail(req.params.id, (err, result) => {
+        if(err) {
+            res.json({success:0, error:err.error})
+        }else {
+            res.json({success:1, response: result})
         }
     })
 })

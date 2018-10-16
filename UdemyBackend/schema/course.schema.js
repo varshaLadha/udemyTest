@@ -37,6 +37,10 @@ const coursSchema = db.define('Course', {
         type: Sequelize.INTEGER,
         defaultValue:0
     },
+    averageRating:{
+        type: Sequelize.INTEGER,
+        defaultValue:0
+    },
     cost: {
         type: Sequelize.DOUBLE,
         allowNull: false,
@@ -56,7 +60,7 @@ const coursSchema = db.define('Course', {
 coursSchema.belongsTo(subCategory,{foreignKey: 'subCategoryId'});
 
 coursSchema.sync({force:false}).then((res) => {
-    console.log('Category Table Created Successfully');
+    console.log('Course Table Created Successfully');
 }).catch((error) => {
     console.log(error);
 })

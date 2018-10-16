@@ -1,5 +1,13 @@
 const Category = require('./../schema/category.schema')
 const {categoryAttributes} = require('./../configs/general')
+const subCategory = require('./../schema/subcategory.schema')
+const Course = require('./../schema/course.schema')
+
+Category.hasMany(subCategory, {foreignKey: 'categoryId'})
+subCategory.belongsTo(Category, {foreignKey: 'categoryId'})
+
+subCategory.hasMany(Course, {foreignKey: 'subCategoryId'})
+Course.belongsTo(subCategory, {foreignKey: 'subCategoryId'})
 
 exports.getAll = (done) => {
     Category.findAll({
@@ -33,5 +41,72 @@ exports.post = (body, done) => {
         }
     }).catch((err) => {
         done({error: err.message, detail:err})
+    })
+}
+
+/*
+exports.getDetail = (id, done) => {
+    Category.find({
+        where: {
+            id: id,
+            isDeleted: false
+        }
+    }).then((data) => {
+        if(data) {
+            subCategory.findAll({
+                where: {
+                    categoryId: id,
+                    isDeleted: false
+                }
+            }).then((detailData) => {
+                if(detailData.length > 0){
+                    done(null, detailData)
+                }else {
+                    done({error: "No detail data available"})
+                }
+            }).catch((err) => {
+                done({error: err.message, detail:err})
+            })
+        }else {
+            done({error: "No data available"})
+        }
+    }).catch((err) => {
+        done({error: err.message, detail:err})
+    })
+}*/
+
+exports.getDetail = (id, done) => {
+    Category.find({
+        where: {
+            id: id,
+            isDeleted: false
+        },
+        include: [subCategory]
+    }).then((data) => {
+        if (data) {
+            done(null, data)
+        } else {
+            done({error: "No data available"})
+        }
+    }).catch((err) => {
+        done({error: err.message, detail: err})
+    })
+}
+
+exports.getPopularCourse = (id, done) => {
+    Category.findAll({
+        where: {
+            id: id,
+            isDeleted: false
+        },
+        include: [subCategory]
+    }).then((data) => {
+        if (data) {
+            done(null, data)
+        } else {
+            done({error: "No data available"})
+        }
+    }).catch((err) => {
+        done({error: err.message, detail: err})
     })
 }

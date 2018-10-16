@@ -1,7 +1,7 @@
 const {Router} = require('express');
 const router = Router();
 
-const {getBySubCategoryId, post} = require('./../controllers/course.controller')
+const {getBySubCategoryId, post, popularCoursesByCategoryId, popularCourses} = require('./../controllers/course.controller')
 
 router.get('/subcategory/:subCategoryId', (req, res) => {
     getBySubCategoryId(req.params.subCategoryId, (err, result) => {
@@ -26,6 +26,30 @@ router.post('/', (req, res) => {
             delete result.dataValues.updatedAt
 
             res.json({success:1, response: result.dataValues})
+        }
+    })
+})
+
+router.get('/popularCourse/:categoryId', (req, res) => {
+    popularCoursesByCategoryId(req.params.categoryId, (err, result) => {
+        if(err) {
+            res.json({success:0, error:err.error})
+        }else if(result.length == 0){
+            res.json({success:0, error:"No data found"})
+        }else {
+            res.json({success:1, response: result})
+        }
+    })
+})
+
+router.get('/popularCourse', (req, res) => {
+    popularCourses((err, result) => {
+        if(err) {
+            res.json({success:0, error:err.error})
+        }else if(result.length == 0){
+            res.json({success:0, error:"No data found"})
+        }else {
+            res.json({success:1, response: result})
         }
     })
 })
