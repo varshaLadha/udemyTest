@@ -15,6 +15,7 @@ import com.example.mac2018_10_01.udemyapp.fragments.CourseFragment;
 import com.example.mac2018_10_01.udemyapp.fragments.FeaturedFragment;
 import com.example.mac2018_10_01.udemyapp.fragments.MyCourseFragment;
 import com.example.mac2018_10_01.udemyapp.fragments.SearchFragment;
+import com.example.mac2018_10_01.udemyapp.fragments.SearchedDataFragment;
 import com.example.mac2018_10_01.udemyapp.fragments.SubCategoryFragment;
 import com.example.mac2018_10_01.udemyapp.fragments.WishlistFragment;
 import com.example.mac2018_10_01.udemyapp.modalClasses.UserData;
@@ -155,6 +156,22 @@ public class BrowseActivity extends AppCompatActivity {
         bundle.putInt("id",id);
 
         CourseFragment fragment = new CourseFragment();
+        fragment.setArguments(bundle);
+
+        FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container,fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    public void loadSearchedData(int id, String searchKey, Boolean isSearch) {
+
+        Bundle bundle = new Bundle();
+        bundle.putString("searchKey", searchKey);
+        bundle.putInt("id",id);
+        bundle.putBoolean("isSearch", isSearch);
+
+        SearchedDataFragment fragment = new SearchedDataFragment();
         fragment.setArguments(bundle);
 
         FragmentTransaction transaction=getSupportFragmentManager().beginTransaction();

@@ -41,4 +41,10 @@ public interface ApiInterface {
     @GET("course/popularCourse")
     Call<SubCategoryDetailResponseModel> getAllPopularCourses();
 
+    @GET("course/{id}")
+    Call<SubCategoryDetailResponseModel> getAllCourses(@Path("id") int id);
+
+    @GET("course/searchCourse/{searchKey}")
+    Call<SubCategoryDetailResponseModel> getSearchedCourses(@Path("searchKey") String searchKey);
+
 }

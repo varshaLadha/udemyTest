@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.mac2018_10_01.udemyapp.R;
 import com.example.mac2018_10_01.udemyapp.activity.ApplicationClass;
+import com.example.mac2018_10_01.udemyapp.activity.BrowseActivity;
 import com.example.mac2018_10_01.udemyapp.adapters.CategoryDataAdapter;
 import com.example.mac2018_10_01.udemyapp.adapters.CategoryListAdapter;
 import com.example.mac2018_10_01.udemyapp.modalClasses.CategoryData;
@@ -99,8 +100,9 @@ public class SearchFragment extends Fragment {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    Toast.makeText(getContext(), tvSearch.getText().toString(), Toast.LENGTH_SHORT).show();
-                    return true;
+                    String searchKey = tvSearch.getText().toString();
+                    tvSearch.setText("");
+                    ((BrowseActivity)getActivity()).loadSearchedData(0,searchKey, true);
                 }
                 return false;
             }

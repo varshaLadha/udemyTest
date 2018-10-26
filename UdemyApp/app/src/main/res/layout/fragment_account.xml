@@ -61,13 +61,11 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/ivProfilePic"
                     android:layout_marginTop="@dimen/size20"
-                    android:layout_marginLeft="@dimen/size10"
-                    android:layout_marginRight="@dimen/size10"
+                    android:layout_marginBottom="@dimen/size20"
                     android:layout_centerHorizontal="true"
                     android:hint="hhfhfhehehf"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/size20"
-                    android:layout_marginBottom="@dimen/size20"/>
+                    android:textSize="@dimen/size20" />
 
                 </RelativeLayout>
 

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mac2018_10_01.udemyapp.R;
+import com.example.mac2018_10_01.udemyapp.activity.BrowseActivity;
 import com.example.mac2018_10_01.udemyapp.modalClasses.CategoryData;
 
 import java.util.ArrayList;
@@ -47,7 +48,8 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
         holder.llCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, categoryDataList.get(position).getId() + " " + categoryDataList.get(position).getCourseName(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, categoryDataList.get(position).getId() + " " + categoryDataList.get(position).getCourseName(), Toast.LENGTH_SHORT).show();
+                ((BrowseActivity)context).loadSearchedData(categoryDataList.get(position).getId(),categoryDataList.get(position).getCourseName(), false);
             }
         });
     }
