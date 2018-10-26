@@ -41,7 +41,7 @@ exports.courseDetailAttributes = [
     'totalLearningHours',
     'learning',
     'requirements',
-    'totalLectures',
+    'totalChapters',
     'previewVideoURL',
     'quiz',
     'articles',
@@ -50,4 +50,10 @@ exports.courseDetailAttributes = [
     'access',
     'certification',
     'supportFiles'
+]
+
+exports.chapterAttributes = [
+    'id',
+    'courseDetailId',
+    'title'
 ]

@@ -1,6 +1,7 @@
 const Course= require('./../schema/course.schema')
 const {courseAttributes} = require('./../configs/general')
 const {db} = require('./../configs/database')
+const Sequelize = require('sequelize');
 
 exports.getBySubCategoryId = (subCategoryId, done) => {
     Course.findAll({
@@ -48,5 +49,41 @@ exports.popularCourses = (done) => {
         done(null, data)
     }).catch((err) => {
         done({error: err.message, detail:err})
+    })
+}
+
+exports.getAllCourse = (id, done) => {
+    db.query("SELECT * FROM Courses WHERE subCategoryId in (SELECT id from Subcategories WHERE categoryId = "+id+")").
+    spread((data) => {
+        done(null, data)
+    }).catch((err) => {
+        done({error: err.message, detail:err})
+    })
+}
+
+exports.searchCourse = (searchKey, done) => {
+    let searchValue = searchKey.toLowerCase();
+
+    Course.findAll({
+        where:{
+            $or:[
+                {
+                    title: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('title')), 'LIKE','%'+searchValue+'%')
+                },
+                {
+                    tag: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('tag')), 'LIKE','%'+searchValue+'%')
+                },
+                {
+                    instructorName: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('instructorName')), 'LIKE','%'+searchValue+'%')
+                },
+                {
+                    cost: Sequelize.where(Sequelize.fn('LOWER', Sequelize.col('cost')), 'LIKE','%'+searchValue+'%')
+                }
+            ]
+        }
+    }).then((data) => {
+        done(null, data)
+    }).catch((err) => {
+        done({error:err.message, detail:err})
     })
 }

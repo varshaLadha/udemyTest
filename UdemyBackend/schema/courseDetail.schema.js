@@ -32,7 +32,7 @@ const courseDetailSchema = db.define('CourseDetail',{
     requirements: {
         type: Sequelize.STRING
     },
-    totalLectures: {
+    totalChapters: {
         type: Sequelize.INTEGER
     },
     previewVideoURL: {
